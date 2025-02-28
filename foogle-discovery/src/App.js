@@ -10,6 +10,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Navbar />}>
             <Route index element={<Home />} />
+             {/* Protected Routes */}
+            {/* <Route element={<ProtectedRoute />}>
+            </Route> */}
           </Route>
         </Routes>
       </Router>

@@ -1,17 +1,20 @@
-import { Link } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import React from 'react';
 import './Navbar.css';
+import MainContent from '../MainContent/MainContent';
 const Navbar = () => {
+  const navigate = useNavigate();
   return (
-    <React.Fragement>
+    <React.Fragment>
     <nav>
-      <div className="logo">FlavorFinder</div>
+      <div className="logo">Foogle</div>
       <div className="auth-buttons">
-        <Link to="/login" className="login">Login</Link>
-        <Link to="/signup" className="signup">Sign Up</Link>
+        <button className="login" onClick={()=>navigate('login')}>Login</button>
+        <button className="signup" onClick={()=>navigate('signup')}>Sign Up</button>
       </div>
     </nav>
-    </React.Fragement>
+    <Outlet/>
+    </React.Fragment>
   );
 };
 
