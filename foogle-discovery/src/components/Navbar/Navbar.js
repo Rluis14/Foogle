@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
-
+import React from 'react';
+import './Navbar.css';
 const Navbar = () => {
   return (
+    <React.Fragement>
     <nav>
       <div className="logo">FlavorFinder</div>
       <div className="auth-buttons">
@@ -9,6 +11,7 @@ const Navbar = () => {
         <Link to="/signup" className="signup">Sign Up</Link>
       </div>
     </nav>
+    </React.Fragement>
   );
 };
 
