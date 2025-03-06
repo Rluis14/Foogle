@@ -1,15 +1,24 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';  // Import useNavigate
+
 const MainContent = () => {
-    return (
-      <div className="main-content">
-        <div className="get-started">
-          <h1>Discover Your Next Favorite Meal</h1>
-          <div className="action-buttons">
-            <button className="search-btn">🔍 Search Recipes</button>
-            <button className="filter-btn">⚙️ Filter by Diet</button>
-          </div>
+  const navigate = useNavigate();  // Initialize navigate function
+
+  return (
+    <div className="main-content">
+      <div className="get-started">
+        <h1>Discover Your Next Favorite Meal</h1>
+        <div className="action-buttons">
+          <button className="search-btn" onClick={() => navigate('/search')}>
+            🔍 Search Recipes
+          </button>
+          <button className="filter-btn" onClick={() => navigate('/filter')}>
+            ⚙️ Filter by Diet
+          </button>
         </div>
       </div>
-    );
-  };
-  
-  export default MainContent;
+    </div>
+  );
+};
+
+export default MainContent;
