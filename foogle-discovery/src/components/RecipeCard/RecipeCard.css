@@ -45,3 +45,24 @@
     font-size: 0.9em;
     color: #6c757d;
   }
+
+  .edit_icon_img{
+    width: 24px;
+    height: 24px;
+    background-color: wheat;
+    /* position: absolute; */
+
+    /* border: none; */
+  }
+  .edit_icon_container{
+    width:30px;
+    height: 30px;
+    /* padding: 5px; */
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    overflow: hidden;
+    position: absolute;
+    top: 10px;
+    right:10px;
+  }

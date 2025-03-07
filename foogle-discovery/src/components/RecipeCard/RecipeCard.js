@@ -1,10 +1,9 @@
 import React from 'react';
 import './RecipeCard.css';
-
 const RecipeCard = ({ title, rating, username, description, imgSrc, onClick,onClickEdit }) => {
   return (
     <div className="recipe_card" onClick={onClick}>
-      {onClickEdit && <div className='Edit icon' onClick={onClickEdit}></div>}
+      {onClickEdit && <div className='edit_icon_container' onClick={onClickEdit}><img src='/icon/edit.png' alt='edit' className='edit_icon_img'/></div>}
       <img src={imgSrc} alt={title} className="recipe_card_img" />
       <div className="recipe_card_content">
         <h3 className="recipe_card_title">{title}</h3>

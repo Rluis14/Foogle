@@ -46,3 +46,9 @@
     font-size: 0.9em;
     color: #6c757d;
   }
+  .edit_icon_img{
+    width: 50px;
+  }
+  .edit_icon_container{
+    border: 1px solid black;
+  }
