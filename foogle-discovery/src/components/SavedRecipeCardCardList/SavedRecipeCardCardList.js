@@ -47,7 +47,7 @@ function SavedRecipeCardCardList() {
       <div className="recipe_container">
       {data.map((recipe,index) => (
         <RecipeCard
-          key={recipe.id + recipe.saved}
+          key={`${recipe.id} ${recipe.saved}`}
           title={recipe.title}
           description={recipe.description}
           rating={recipe.rating}
