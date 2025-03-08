@@ -3,6 +3,7 @@ import ReviewCard from '../../components/ReviewCard/ReviewCard';
 import RecipeCard from '../../components/RecipeCard/RecipeCard';
 import './Profile.css';
 import { AuthContext } from '../../context/AuthContext';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 
 const dummyReviews = [
   {
@@ -76,102 +77,65 @@ const dummyRecipesOwner = [
     username: 'User test'
   }
 ];
-
 const sections = [
   {
-    type: 'savedRecipes',
+    type: 'saved_recipes',
     name: 'User Saved Recipes',
-    component: (savedRecipes) => (
-        savedRecipes.map((recipe) => (
-          <RecipeCard
-            key={recipe.id}
-            title={recipe.title}
-            description={recipe.description}
-            rating={recipe.rating}
-            imgSrc={recipe.imgSrc}
-            username={recipe.username}
-          />
-        ))
-    )
+    url:'saved_recipes'
   },
   {
-    type: 'createdRecipes',
+    type: 'created_recipes',
     name: 'User Recipe Created',
-    component: (ownedRecipes) => (
-      ownedRecipes.map((recipe) => (
-        <RecipeCard
-          key={recipe.id}
-          title={recipe.title}
-          description={recipe.description}
-          rating={recipe.rating}
-          imgSrc={recipe.imgSrc}
-          username={recipe.username}
-          onClickEdit={()=>{}}
-        />
-      )))
+    url:'created_recipes'
   },
   {
     type: 'reviews',
     name: 'User\'s Review',
-    component: (reviews) => (
-        reviews.map((review) => (
-          <ReviewCard
-            key={review.id}
-            title={review.title}
-            description={review.description}
-            rating={review.rating}
-            imgSrc={review.imgSrc}
-            username={review.username}
-          />
-        ))
-    )
+    url:'review',
   }
 ];
-
+const determineSection = (path)=>{
+  const subpaths = path.split('/');
+  return subpaths[2]||'';
+}
 const Profile = () => {
-  const { user } = useContext(AuthContext);
-  const [selectedSection, setSelectedSection] = useState(null);
-
+  const location = useLocation();
+  const [selectedSection, setSelectedSection] = useState(determineSection(location.pathname));
+  const navigate = useNavigate();
   const renderSection = () => {
     const section = sections.find(sec => sec.type === selectedSection);
     //fetch data here
     let data = [];
-    if(selectedSection === 'savedRecipes') data = dummyRecipes; 
+    if(selectedSection === 'saved_recipes') data = dummyRecipes; 
     else if(selectedSection === 'reviews') data = dummyReviews; 
-    else if(selectedSection === 'createdRecipes') data = dummyRecipesOwner; 
-    console.log(data)
-    return section ? section.component(data) : null;
+    else if(selectedSection === 'created_recipes') data = dummyRecipesOwner;
+    const {Component} = section; 
+    return section ? <Component data={data} onClick/> : null;
   };
-
-  const getSectionTitle = () => {
-    const section = sections.find(sec => sec.type === selectedSection);
-    return section ? section.name : 'Hello '+user;
-  };
+  const onClickSection= (section)=>{
+    navigate(section.url);
+    setSelectedSection(section.type);
+  }
 
   return (
     <div className="profile_container">
       <div className="profile_sidebar">
-        <ul>
           {sections.map((section) => {
             const isSelected = section.type===selectedSection;
-            console.log(isSelected)
             return (
-              <li className={isSelected?'selected':undefined} key={section.type+isSelected} onClick={() => setSelectedSection(section.type)}>
+              <div className={isSelected?'selected':undefined} key={section.type+isSelected} onClick={() => onClickSection(section)}>
                 {section.name}
-              </li>
+              </div>
             )
           })}
           {/* <li onClick={() => setSelectedSection(null)}>Home</li> */}
-        </ul>
       </div>
       <div className='display_container'>
-        <h2 className="profile_title">{getSectionTitle()}</h2>
-        <div className="profile_content">
-          {renderSection()}
-        </div>
+        <Outlet/>
       </div>
     </div>
   );
 };
+
 
 export default Profile;
