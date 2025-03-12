@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <React.Fragment>
     <nav>
-      <div className="logo">Foogle</div>
+      <div className="logo" onClick={()=>navigate('')}>Foogle</div>
       <div className="auth-buttons">
         <button className="login" onClick={()=>navigate('login')}>Login</button>
         <button className="signup" onClick={()=>navigate('signup')}>Sign Up</button>
