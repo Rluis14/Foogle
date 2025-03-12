@@ -4,6 +4,9 @@ import { AuthProvider } from "./context/AuthContext";
 import Home from "./Page/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./Page/Profile/Profile";
+import Login from "./Page/Login/login";
+import Signup from "./Page/Signup/signup";
+
 function App() {
   return (
     <AuthProvider>
@@ -11,6 +14,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Navbar />}>
             <Route index element={<Home />} />
+            <Route path="login" element={<Login />} />
+            <Route path="signup" element={<Signup />} />
              {/* Protected Routes */}
             <Route path="profile" element={<Profile />} />
             {/* <Route element={<ProtectedRoute />}>
