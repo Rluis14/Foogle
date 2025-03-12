@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Profile from "./Page/Profile/Profile";
 import Login from "./Page/Login/login";
 import Signup from "./Page/Signup/signup";
+import Interaction from "./Page/Interaction/Interaction";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<Signup />} />
+            <Route path="interaction" element={<Interaction />} />
              {/* Protected Routes */}
             <Route path="profile" element={<Profile />} />
             {/* <Route element={<ProtectedRoute />}>
