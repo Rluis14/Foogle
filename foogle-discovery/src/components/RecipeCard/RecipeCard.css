@@ -38,13 +38,6 @@
     color: #6c757d;
     margin: 5px 0;
   }
-  
-  .recipe_card_description {
-    max-height: 100px;
-    overflow-y: auto;
-    font-size: 0.9em;
-    color: #6c757d;
-  }
 
   .recipe_icon_img{
     width: 24px;

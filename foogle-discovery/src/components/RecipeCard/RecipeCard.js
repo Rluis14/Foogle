@@ -1,6 +1,6 @@
 import React from 'react';
 import './RecipeCard.css';
-const RecipeCard = ({ title, rating, username, description, imgSrc, onClick,onClickEdit,onClickSave,saved=false }) => {
+const RecipeCard = ({ title, rating, username, imgSrc, onClick,onClickEdit,onClickSave,saved=false }) => {
   return (
     <div className="recipe_card" onClick={onClick}>
       <div className='recipe_interact_container'>
@@ -12,7 +12,6 @@ const RecipeCard = ({ title, rating, username, description, imgSrc, onClick,onCl
         <h3 className="recipe_card_title">{title}</h3>
         <p className="recipe_card_rating">Rated: {rating}</p>
         <p className="recipe_card_username">Created by: {username}</p>
-        <div className="recipe_card_description">{description}</div>
       </div>
     </div>
   );

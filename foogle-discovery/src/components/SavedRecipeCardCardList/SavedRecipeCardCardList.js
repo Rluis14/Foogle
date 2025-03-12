@@ -6,7 +6,6 @@ const dummyRecipes = [
     {
       id: 5,
       title: 'Spaghetti Carbonara',
-      description: 'A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.',
       rating: 5,
       imgSrc: 'https://www.simplyrecipes.com/thmb/Boo37yZBqeSpmELBIP_BBX_yVlU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Spaghetti-And-Meatballs-LEAD-3-40bdae68ea144751a8e0a4b0f972af2d.jpg',
       username: 'User test',
@@ -15,7 +14,6 @@ const dummyRecipes = [
     {
       id: 6,
       title: 'Chicken Alfredo',
-      description: 'Creamy Alfredo sauce with tender chicken served over fettuccine pasta.',
       rating: 4,
       imgSrc: 'https://www.simplyrecipes.com/thmb/Boo37yZBqeSpmELBIP_BBX_yVlU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Spaghetti-And-Meatballs-LEAD-3-40bdae68ea144751a8e0a4b0f972af2d.jpg',
       username: 'User test',

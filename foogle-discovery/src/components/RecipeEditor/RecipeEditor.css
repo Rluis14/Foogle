@@ -8,6 +8,15 @@
   background-color: #fff;
   overflow-y: auto;
 }
+.recipe_editor_container{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.397);
+  padding-top: 50px;
+}
 
 .recipe_editor_title {
   text-align: center;
@@ -38,11 +47,16 @@
 }
 
 .form_group input[type="text"],
+.form_group select,
 .form_group textarea {
   width: 100%;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+
+.form_group textarea {
+  resize: vertical;
 }
 
 .form_group input[type="file"] {

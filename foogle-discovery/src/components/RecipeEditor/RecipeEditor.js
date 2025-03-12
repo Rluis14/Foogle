@@ -1,11 +1,13 @@
 import React, { useRef, useState } from 'react';
+import AreaFood from '../../static/AreaFood';
 import './RecipeEditor.css';
 
-const RecipeEditor = ({onExit}) => {
+const RecipeEditor = ({onExit,showed=false}) => {
   const [title, setTitle] = useState('');
   const [instruction, setInstruction] = useState('');
   const [imgSrc, setImgSrc] = useState('');
   const [ingredients, setIngredients] = useState(['']);
+  const [selectionArea,setSectionArea] = useState('');
   const imgUploadRef = useRef(null);
   const imgUploadContainerRef = useRef(null);
   const handleAddIngredient = () => {
@@ -79,8 +81,9 @@ const RecipeEditor = ({onExit}) => {
     // Add your logic here
   };
 
-
+  if(!showed) return null;
   return (
+    <div className='recipe_editor_container' onClick={(e)=>{e.stopPropagation();onExit();}}>
     <div className="recipe_editor" onClick={(e)=>e.stopPropagation()}>
       <h2 className='recipe_editor_title'>Add New Recipe</h2>
       <form className='recipe_form' onSubmit={onAdd}>
@@ -92,6 +95,15 @@ const RecipeEditor = ({onExit}) => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
+        </div>
+        <div className="form_group">
+          <label>Instruction</label>
+          <select value={selectionArea} onChange={(e)=>setSectionArea(e.target.value)}>
+            <option value=''>Select Area</option>
+            {AreaFood.map((area,index)=>(
+              <option key={index} value={area}>{area}</option>
+            ))}
+          </select>
         </div>
         <div className="form_group">
           <label>Instruction</label>
@@ -143,6 +155,7 @@ const RecipeEditor = ({onExit}) => {
           </button>
         </div>
       </form>
+    </div>
     </div>
   );
 };

@@ -8,7 +8,6 @@ const dummyRecipesOwner = [
   {
     id: 7,
     title: 'Spaghetti Carbonara',
-    description: 'A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.',
     rating: 5,
     imgSrc: 'https://www.simplyrecipes.com/thmb/Boo37yZBqeSpmELBIP_BBX_yVlU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Spaghetti-And-Meatballs-LEAD-3-40bdae68ea144751a8e0a4b0f972af2d.jpg',
     username: 'User test'
@@ -16,7 +15,6 @@ const dummyRecipesOwner = [
   {
     id: 8,
     title: 'Chicken Alfredo',
-    description: 'Creamy Alfredo sauce with tender chicken served over fettuccine pasta.',
     rating: 4,
     imgSrc: 'https://www.simplyrecipes.com/thmb/Boo37yZBqeSpmELBIP_BBX_yVlU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Spaghetti-And-Meatballs-LEAD-3-40bdae68ea144751a8e0a4b0f972af2d.jpg',
     username: 'User test'
@@ -49,7 +47,6 @@ function CreatedRecipesList() {
         <RecipeCard
           key={recipe.id}
           title={recipe.title}
-          description={recipe.description}
           rating={recipe.rating}
           imgSrc={recipe.imgSrc}
           username={recipe.username}
@@ -59,7 +56,7 @@ function CreatedRecipesList() {
       ))}
       <img src="/icon/add-icon.png" className="add_icon" alt="add icon" title="Add recipe" onClick={onAdd}/>
       </div>
-      <div className={`recipe_editor_container${showEditor?'':' hide'}`} onClick={onExit}><RecipeEditor onExit={onExit}/></div>
+      <RecipeEditor onExit={onExit} showed={showEditor}/>
     </React.Fragment>
   );
 }
