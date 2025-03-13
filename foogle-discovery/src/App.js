@@ -9,6 +9,9 @@ import UserReviewList from "./components/UserReviewList/UserReviewList";
 import CreatedRecipesList from "./components/CreatedRecipesList/CreatedRecipesList";
 import { useContext } from "react";
 import RecipeEditor from "./components/RecipeEditor/RecipeEditor";
+import { AuthProvider } from "./context/AuthContext";
+import SearchPage from './Page/Searchpage/SearchPage';
+import FilterSearchPage from './Page/Filterpage/FilterSearchPage';
 function App() {
   const {user} = useContext(AuthContext);
   return (
@@ -16,6 +19,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Navbar />}>
             <Route index element={<Home />} />
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="/filter" element={<FilterSearchPage />} />
              {/* Protected Routes */}
             <Route path="profile" element={<Profile />}>
               <Route path="saved_recipes" element={<SavedRecipeCardCardList/>}/>
@@ -24,8 +29,6 @@ function App() {
               <Route path="created_recipes" element={<CreatedRecipesList/>}/>
             </Route>
             {/* <Route path='recipe_edit' element={<RecipeEditor/>}/> */}
-            {/* <Route element={<ProtectedRoute />}>
-            </Route> */}
           </Route>
         </Routes>
       </Router>
