@@ -25,6 +25,7 @@ function CreatedRecipesList() {
   const navigate = useNavigate();
   const [data,setData] = useState([]); 
   const [showEditor,setShowEditor] = useState(false); 
+  const [editRecipe,setEditRecipe] = useState(null);
   useEffect(()=>{
     //fetch here
     setData(dummyRecipesOwner);
@@ -56,7 +57,7 @@ function CreatedRecipesList() {
       ))}
       <img src="/icon/add-icon.png" className="add_icon" alt="add icon" title="Add recipe" onClick={onAdd}/>
       </div>
-      <RecipeEditor onExit={onExit} showed={showEditor}/>
+      <RecipeEditor key={'editor'+showEditor} onExit={onExit} showed={showEditor}/>
     </React.Fragment>
   );
 }

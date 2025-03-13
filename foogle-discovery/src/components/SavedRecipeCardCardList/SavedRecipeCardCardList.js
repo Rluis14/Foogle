@@ -47,7 +47,6 @@ function SavedRecipeCardCardList() {
         <RecipeCard
           key={`${recipe.id} ${recipe.saved}`}
           title={recipe.title}
-          description={recipe.description}
           rating={recipe.rating}
           imgSrc={recipe.imgSrc}
           username={recipe.username}
